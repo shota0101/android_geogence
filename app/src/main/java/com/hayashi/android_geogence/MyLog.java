@@ -33,4 +33,8 @@ public class MyLog {
     public String getLogText() {
         return this.text.read();
     }
+
+    public void deleteLogFile() {
+        this.text.delete();
+    }
 }

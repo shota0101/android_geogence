@@ -41,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
 
     private TextView textView = null;
     private Button displayButton = null;
+    private Button clearButton = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,11 +53,19 @@ public class MainActivity extends AppCompatActivity {
     private void init() {
         this.textView = findViewById(R.id.text_view);
         this.displayButton = findViewById(R.id.display_button);
+        this.clearButton = findViewById(R.id.clear_button);
 
         this.displayButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 showLog();
+            }
+        });
+
+        this.clearButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MyLog.getInstance().deleteLogFile();
             }
         });
 

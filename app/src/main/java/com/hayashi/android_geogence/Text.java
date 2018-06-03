@@ -3,6 +3,7 @@ package com.hayashi.android_geogence;
 import android.content.Context;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -50,5 +51,11 @@ public class Text {
             e.printStackTrace();
         }
         return text;
+    }
+
+    public void delete() {
+        // 参考
+        // http://d.hatena.ne.jp/chiakisugimoto/20100311/1268312083
+        context.deleteFile(filePath);
     }
 }
