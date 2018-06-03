@@ -1,6 +1,5 @@
 package com.hayashi.android_geogence;
 
-import android.app.Activity;
 import android.util.Log;
 
 public class MyLog {
