@@ -43,7 +43,7 @@ public class Text {
             BufferedReader reader= new BufferedReader(new InputStreamReader(in,"UTF-8"));
             String lineBuffer;
             while( (lineBuffer = reader.readLine()) != null ){
-                text += lineBuffer;
+                text += lineBuffer + "\n";
             }
         } catch (IOException e) {
             // TODO 自動生成された catch ブロック

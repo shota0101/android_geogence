@@ -27,7 +27,10 @@ public class MyLog {
 
     public void debug(String message) {
         Log.d(TAG, message);
-        message = "\n" + message;
-        this.text.append(message);
+        this.text.append(message + "\n");
+    }
+
+    public String getLogText() {
+        return this.text.read();
     }
 }
