@@ -43,13 +43,16 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        this.textView = findViewById(R.id.text_view);
-        MyLog.init(this);
         init();
     }
 
     private void init() {
+        this.textView = findViewById(R.id.text_view);
+        MyLog.init(this);
+        initGeoFence();
+    }
+
+    private void initGeoFence() {
         GeofenceTransitionsIntentService.activity = this;
 
         geofencingClient = LocationServices.getGeofencingClient(this);
