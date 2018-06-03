@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
 
     private final String TAG = "----";
     private final int GEOFENCE_EXPIRATION_IN_MILLISECONDS = 1000 * 60 * 60 * 60 * 24;
-    private final int GEOFENCE_RADIUS_IN_METERS = 1000;
+    private final int GEOFENCE_RADIUS_IN_METERS = 100;
 
     private GeofencingClient geofencingClient = null;
     private List<Geofence> geofenceList = new ArrayList<>();
