@@ -93,11 +93,12 @@ public class GeofenceTransitionsIntentService extends IntentService
         } else {
             message += "else";
         }
-        message += " : " + geofenceList.size() + "\n";
+        message += " , count : " + geofenceList.size() + " ( ";
 
         for (Geofence geofence : geofenceList) {
             message += geofence.getRequestId() + " ";
         }
+        message += ")";
 
         return message;
     }
