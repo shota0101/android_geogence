@@ -22,7 +22,6 @@ import com.google.android.gms.location.GeofencingEvent;
 public class GeofenceTransitionsIntentService extends IntentService
         implements GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener {
 
-    private final String TAG = "----";
     public static Activity activity = null;
 
     public GeofenceTransitionsIntentService(String name) {
@@ -52,7 +51,9 @@ public class GeofenceTransitionsIntentService extends IntentService
 
             List<Geofence> triggeringGeofences = geofencingEvent.getTriggeringGeofences();
 
-            sendNotification(getMessage(geofenceTransition, triggeringGeofences));
+            String message = getMessage(geofenceTransition, triggeringGeofences);
+            MyLog.getInstance().debug(message);
+            sendNotification(message);
         } else {
             sendNotification("onHandleIntent error");
         }
@@ -61,22 +62,22 @@ public class GeofenceTransitionsIntentService extends IntentService
     @Override
     public void onDestroy() {
         super.onDestroy();
-        sendNotification("onDestroy()");
+        MyLog.getInstance().debug("onDestroy()");
     }
 
     @Override
     public void onConnected(Bundle connectionHint) {
-        sendNotification("onConnected() " + connectionHint.toString());
+        MyLog.getInstance().debug("onConnected() " + connectionHint.toString());
     }
 
     @Override
     public void onConnectionSuspended(int cause) {
-        sendNotification("onConnectionSuspended() " + String.valueOf(cause));
+        MyLog.getInstance().debug("onConnectionSuspended() " + String.valueOf(cause));
     }
 
     @Override
     public void onConnectionFailed(ConnectionResult result) {
-        sendNotification("onConnectionFailed() " + result.toString());
+        MyLog.getInstance().debug("onConnectionFailed() " + result.toString());
     }
 
     public static void sendNotification(String text) {

@@ -52,6 +52,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        MyLog.init(this);
         init();
     }
 
@@ -116,7 +118,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private GeofencingRequest getGeofencingRequest() {
-        Log.d(TAG, "ジオフェンシングリクエスト");
+        MyLog.getInstance().debug("ジオフェンシングリクエスト");
         GeofencingRequest.Builder builder = new GeofencingRequest.Builder();
         builder.setInitialTrigger(GeofencingRequest.INITIAL_TRIGGER_ENTER);
         builder.addGeofences(geofenceList);
@@ -131,7 +133,7 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, GeofenceTransitionsIntentService.class);
         geofencePendingIntent = PendingIntent.getService(this, 0, intent, PendingIntent.
                 FLAG_UPDATE_CURRENT);
-        Log.d(TAG, "ペンディングインテント作成");
+        MyLog.getInstance().debug("ペンディングインテント作成");
         return geofencePendingIntent;
     }
 
