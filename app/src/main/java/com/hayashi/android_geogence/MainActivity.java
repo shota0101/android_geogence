@@ -70,6 +70,14 @@ public class MainActivity extends AppCompatActivity {
                 = new LatLng(35.681167, 139.767052);
         LatLng latLngOsakaStation
                 = new LatLng(34.702485, 135.495951);
+        LatLng latLngGfoOsaka
+                = new LatLng(34.704113, 135.494831);
+        LatLng latLngSannomiyaStation
+                = new LatLng(34.694139, 135.194221);
+        LatLng latLngCityTower
+                = new LatLng(34.696748, 135.198056);
+        LatLng latLngKosiengutiStation
+                = new LatLng(34.7390762,135.3726983);
 
         addGeofence(
                 "TokyoStation",
@@ -77,6 +85,18 @@ public class MainActivity extends AppCompatActivity {
         addGeofence(
                 "OsakaStation",
                 latLngOsakaStation);
+        addGeofence(
+                "GfoOsaka",
+                latLngGfoOsaka);
+        addGeofence(
+                "SannomiyaStation",
+                latLngSannomiyaStation);
+        addGeofence(
+                "CityTower",
+                latLngCityTower);
+        addGeofence(
+                "KosiengutiStation",
+                latLngKosiengutiStation);
 
         Boolean isFineGranted =
                 ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED;
