@@ -12,6 +12,8 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.google.android.gms.location.Geofence;
@@ -38,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
     private PendingIntent geofencePendingIntent = null;
 
     private TextView textView = null;
+    private Button displayButton = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +51,15 @@ public class MainActivity extends AppCompatActivity {
 
     private void init() {
         this.textView = findViewById(R.id.text_view);
+        this.displayButton = findViewById(R.id.display_button);
+
+        this.displayButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showLog();
+            }
+        });
+
         MyLog.init(this);
         initGeoFence();
     }
@@ -156,5 +168,11 @@ public class MainActivity extends AppCompatActivity {
         addGeofence(id,
                 latLng.latitude,
                 latLng.longitude);
+    }
+
+    private void showLog() {
+        this.textView.setText(
+                MyLog.getInstance().getLogText()
+        );
     }
 }
