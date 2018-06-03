@@ -21,6 +21,7 @@ import android.support.v4.app.NotificationManagerCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.widget.TextView;
 
 import com.google.android.gms.location.Geofence;
 import com.google.android.gms.location.GeofencingClient;
@@ -48,11 +49,14 @@ public class MainActivity extends AppCompatActivity {
     private List<Geofence> geofenceList = new ArrayList<>();
     private PendingIntent geofencePendingIntent = null;
 
+    private TextView textView = null;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        this.textView = findViewById(R.id.text_view);
         MyLog.init(this);
         init();
     }
