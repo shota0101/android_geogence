@@ -42,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView textView = null;
     private Button displayButton = null;
     private Button clearButton = null;
+    private Button requestButton = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
         this.textView = findViewById(R.id.text_view);
         this.displayButton = findViewById(R.id.display_button);
         this.clearButton = findViewById(R.id.clear_button);
+        this.requestButton = findViewById(R.id.request_button);
 
         this.displayButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,8 +71,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        this.requestButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                initGeoFence();
+            }
+        });
+
         MyLog.init(this);
-        initGeoFence();
     }
 
     private void initGeoFence() {

@@ -28,6 +28,13 @@
         android:layout_width="fill_parent"
         android:layout_height="50dp"
         android:text="clear"
+        app:layout_constraintBottom_toTopOf="@+id/request_button" />
+
+    <Button
+        android:id="@+id/request_button"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:text="request"
         app:layout_constraintBottom_toBottomOf="parent" />
 
 </android.support.constraint.ConstraintLayout>
