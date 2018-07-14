@@ -152,13 +152,13 @@ public class MainActivity extends AppCompatActivity {
                 });
     }
 
-    private void addGeofence(String id, double lat, double lng) {
+    private void addGeofence(String id, double lat, double lng, int mRadius) {
         Geofence geofence = new Geofence.Builder()
                 .setRequestId(id)
                 .setCircularRegion(
                         lat,
                         lng,
-                        GEOFENCE_RADIUS_IN_METERS)
+                        mRadius)
                 .setExpirationDuration(GEOFENCE_EXPIRATION_IN_MILLISECONDS)
                 .setTransitionTypes(Geofence.GEOFENCE_TRANSITION_ENTER |
                         Geofence.GEOFENCE_TRANSITION_EXIT)
@@ -189,7 +189,15 @@ public class MainActivity extends AppCompatActivity {
     private void addGeofence(String id, LatLng latLng) {
         addGeofence(id,
                 latLng.latitude,
-                latLng.longitude);
+                latLng.longitude,
+                GEOFENCE_RADIUS_IN_METERS);
+    }
+
+    private void addGeofence(String id, LatLng latLng, int mRadius) {
+        addGeofence(id,
+                latLng.latitude,
+                latLng.longitude,
+                mRadius);
     }
 
     private void showLog() {
