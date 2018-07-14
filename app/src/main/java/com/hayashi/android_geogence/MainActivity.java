@@ -86,6 +86,8 @@ public class MainActivity extends AppCompatActivity {
 
         geofencingClient = LocationServices.getGeofencingClient(this);
 
+        LatLng latLngFuji
+                = new LatLng(35.360556, 138.727778);
         LatLng latLngTokyoStation
                 = new LatLng(35.681167, 139.767052);
         LatLng latLngOsakaStation
@@ -99,6 +101,9 @@ public class MainActivity extends AppCompatActivity {
         LatLng latLngKosiengutiStation
                 = new LatLng(34.7390762,135.3726983);
 
+        addGeofence(
+                "Fuji",
+                latLngFuji);
         addGeofence(
                 "TokyoStation",
                 latLngTokyoStation);
